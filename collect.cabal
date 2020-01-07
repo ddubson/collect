@@ -1,0 +1,65 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 14b3212ce2a16b600aec500771e13e9dfdeaa994da9ffa112fa4d49799583168
+
+name:           collect
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ddubson/collect#readme>
+homepage:       https://github.com/ddubson/collect#readme
+bug-reports:    https://github.com/ddubson/collect/issues
+author:         Dmitriy Dubson
+maintainer:     d.dubson@gmail.com
+copyright:      2020 Dmitriy Dubson
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/ddubson/collect
+
+library
+  exposed-modules:
+      Actions.OsResolverAction
+  other-modules:
+      Paths_collect
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , process >=1.6.5.0
+  default-language: Haskell2010
+
+executable collect-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_collect
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , collect
+    , process >=1.6.5.0
+  default-language: Haskell2010
+
+test-suite collect-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_collect
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , collect
+    , process >=1.6.5.0
+  default-language: Haskell2010

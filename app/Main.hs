@@ -1,6 +1,7 @@
 module Main where
 
-import Lib
+import Actions.OsResolverAction (resolveOS)
 
 main :: IO ()
-main = someFunc
+main = do
+  resolveOS
