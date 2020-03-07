@@ -2,3 +2,5 @@
 collect.cabal
 *~
 .idea/
+.ghc*
+dist*
