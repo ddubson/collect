@@ -4,27 +4,29 @@
 
 ### Pre-requisites
 
-- Cabal package manager
+- Stack package manager (>= 2.1.3)
 - GHC Haskell (2010)
 
 ### Running locally
 
 ```bash
-cabal new-run collect
+stack run
 ```
 
-### Adding new packages
+### Running tests
+
+Execute HSpec test cases via
 
 ```bash
-cabal new-install [package-name]
+stack test
 ```
 
 ## Building artifact
 
 ```bash
-cabal new-build exe:collect --builddir=dist
+stack install
 ```
 
 The resulting artifact will be located in: 
 
-- On x86_64 -> e.g. `dist/build/x86_64-windows/ghc-8.6.5/collect-0.1.0.0/x/collect/build/collect/collect.exe`
+- On Windows x86_64 -> e.g. `~\AppData\Roaming\Local\bin` (available through CLI)
