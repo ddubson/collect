@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ddubson/collect.svg?branch=master)](https://travis-ci.org/ddubson/collect)
+
 # Collect
 
 ## Developing Collect
@@ -8,7 +10,7 @@
 - GHC Haskell (2010)
 
 ### Running locally
-
+__
 ```bash
 stack run
 ```

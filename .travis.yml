@@ -1,5 +1,8 @@
 sudo: false
 
+os: linux
+language: haskell
+
 cache:
   directories:
     - $HOME/.stack
