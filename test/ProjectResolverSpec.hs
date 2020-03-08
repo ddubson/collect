@@ -1,11 +1,15 @@
 module ProjectResolverSpec (spec) where
 
 import Test.Hspec
+import Test.QuickCheck
 import ProjectResolver (resolveProjects)
 
 spec :: Spec
 spec = do
     describe "resolveProjects" $ do
+        describe "when provided no recognizable projects" $ do
+            it "returns an empty array" $ property $
+                \x -> (resolveProjects x) `shouldBe` []
         describe "when provided a Groovy Gradle project" $ do
             it "returns Groovy Gradle" $ do
                 (resolveProjects ["build.gradle", "some.txt"]) `shouldBe` ["Gradle (Groovy)"]
