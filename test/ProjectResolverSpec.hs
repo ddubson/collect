@@ -12,3 +12,6 @@ spec = do
         describe "when provided a Groovy and Kotlin Gradle project" $ do
             it "return Groovy + Gradle project" $ do
                 (resolveProjects ["build.gradle", "build.gradle.kts"]) `shouldBe` ["Gradle (Groovy)", "Gradle (Kotlin)"]
+        describe "when provided with a Haskell/Stack project" $ do
+            it "returns Haskell/Stack project in list" $ do
+                (resolveProjects ["build.gradle", "stack.yaml.lock"]) `shouldBe` ["Gradle (Groovy)", "Haskell with Stack"]

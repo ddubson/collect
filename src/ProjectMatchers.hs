@@ -1,4 +1,4 @@
-module ProjectMatchers (isGroovyGradle, isGroovyKotlin) where
+module ProjectMatchers (isGroovyGradle, isGroovyKotlin, isHaskellWithStack) where
 
 import Data.List (find)
 
@@ -12,3 +12,6 @@ isGroovyGradle path = isProjectByMatcher (== "build.gradle") path
 
 isGroovyKotlin :: [FilePath] -> Bool
 isGroovyKotlin path = isProjectByMatcher (== "build.gradle.kts") path
+
+isHaskellWithStack :: [FilePath] -> Bool
+isHaskellWithStack path = isProjectByMatcher (== "stack.yaml") path || isProjectByMatcher (== "stack.yaml.lock") path
