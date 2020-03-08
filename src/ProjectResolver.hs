@@ -1,9 +1,9 @@
 module ProjectResolver (resolveProjects) where
 
-import ProjectMatchers (isGroovyGradle, isGroovyKotlin, isHaskellWithStack)
+import ProjectMatchers (isGroovyGradle, isGroovyKotlin, isHaskellWithStack, ProjectMatcher)
 import qualified Data.Map as Map
 
-projectMap :: Map.Map String ([FilePath] -> Bool)
+projectMap :: Map.Map String (ProjectMatcher)
 projectMap = Map.fromList [
     ("Gradle (Groovy)", isGroovyGradle),
     ("Gradle (Kotlin)", isGroovyKotlin),
