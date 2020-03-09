@@ -20,7 +20,11 @@ stack run
 Execute HSpec test cases via
 
 ```bash
+# Run all specs
 stack test
+
+# Run individual spec by matcher keyword
+stack test --ta=--match=[keyword]
 ```
 
 ## Building artifact

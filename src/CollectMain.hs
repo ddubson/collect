@@ -5,6 +5,11 @@ import ProjectResolver (resolveProjects)
 
 collectStart :: IO ()
 collectStart = do
+    contents <- readCurrentDirectory
+    putStrLn . show $ resolveProjects contents
+
+readCurrentDirectory :: IO [FilePath]
+readCurrentDirectory = do
     directory <- getCurrentDirectory
     directoryContents <- (listDirectory directory)
-    putStrLn . show $ (resolveProjects directoryContents)
+    return directoryContents
