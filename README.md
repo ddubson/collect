@@ -7,10 +7,10 @@
 ### Pre-requisites
 
 - Stack package manager (>= 2.1.3)
-- GHC Haskell (2010)
+- GHC (2010)
 
 ### Running locally
-__
+
 ```bash
 stack run
 ```

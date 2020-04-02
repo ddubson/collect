@@ -1,5 +1,6 @@
 module ProjectMatchers (
-        isGroovyGradle, isGroovyKotlin, isHaskellWithStack, ProjectMatcher,
+        isGroovyGradle, isGroovyKotlin,
+        isHaskellWithStack, ProjectMatcher,
         isReactJavascript, isNodeJs
    ) where
 
@@ -17,6 +18,6 @@ isGroovyKotlin = isProjectByMatcher (== "build.gradle.kts") :: ProjectMatcher
 isHaskellWithStack path = isProjectByMatcher (== "stack.yaml") path || isProjectByMatcher (== "stack.yaml.lock") path
 isNodeJs = isProjectByMatcher (== "package.json") :: ProjectMatcher
 
-isReactJavascript :: Maybe [Char] -> Bool
-isReactJavascript (Nothing) = False
-isReactJavascript (Just contents) = True
+isReactJavascript :: String -> Bool
+isReactJavascript "" = False
+isReactJavascript contents = True

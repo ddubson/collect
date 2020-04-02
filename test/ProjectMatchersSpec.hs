@@ -1,5 +1,6 @@
 module ProjectMatchersSpec (spec) where
 
+import System.IO (readFile)
 import Test.Hspec
 import Test.QuickCheck
 import ProjectMatchers (isGroovyGradle, isNodeJs, isGroovyKotlin,
@@ -39,6 +40,7 @@ spec = do
             it "returns True" $ property $
                 \x -> (isNodeJs (["package.json"]++x)) `shouldBe` True
     describe "isReactJavascript" $ do
-        describe "when provided file contents containing a React/ReactDOM dependency" $ do
-            it "returns True" $ property $
-                \x -> (isReactJavascript (Just x)) `shouldBe` True
+        describe "when provided file contents without a React/ReactDOM dependency" $ do
+            it "returns True" $ do
+               fakePackageJson <- readFile "test/fixtures/test-package.json"
+               (isReactJavascript fakePackageJson) `shouldBe` False
